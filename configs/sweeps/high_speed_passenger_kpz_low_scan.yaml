@@ -1,0 +1,98 @@
+manifest_name: high_speed_passenger_kpz_low_scan
+base_profile_dir: configs/standard
+output_root: configs/trials/high_speed_passenger_kpz_low_scan
+common:
+  project_name: 高速客车一系垂向扫描_降Kpz
+  vehicle_type: 高速客车
+  save_dof_mode: vehicle
+  irr_type: 外部导入
+  plot_figs: 'Off'
+  note_prefix: kpz_low_scan
+  description: >
+    低一系垂向刚度扫描（接续上次结果，上次最优 Kpz=0.45e6+Cpz=6e3）。
+    本轮向下延伸：Kpz = 0.15/0.25/0.35e6，Cpz = 3/6/9e3，共 9 组。
+
+cases:
+  # ── Kpz = 0.35e6 ─────────────────────────────────────
+  - case_id: case_01_kpz035_cpz03k
+    note: Kpz=0.35e6, Cpz=3e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 350000.0
+            Cpz_base: 3000.0
+
+  - case_id: case_02_kpz035_cpz06k
+    note: Kpz=0.35e6, Cpz=6e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 350000.0
+            Cpz_base: 6000.0
+
+  - case_id: case_03_kpz035_cpz09k
+    note: Kpz=0.35e6, Cpz=9e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 350000.0
+            Cpz_base: 9000.0
+
+  # ── Kpz = 0.25e6 ─────────────────────────────────────
+  - case_id: case_04_kpz025_cpz03k
+    note: Kpz=0.25e6, Cpz=3e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 250000.0
+            Cpz_base: 3000.0
+
+  - case_id: case_05_kpz025_cpz06k
+    note: Kpz=0.25e6, Cpz=6e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 250000.0
+            Cpz_base: 6000.0
+
+  - case_id: case_06_kpz025_cpz09k
+    note: Kpz=0.25e6, Cpz=9e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 250000.0
+            Cpz_base: 9000.0
+
+  # ── Kpz = 0.15e6 ─────────────────────────────────────
+  - case_id: case_07_kpz015_cpz03k
+    note: Kpz=0.15e6, Cpz=3e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 150000.0
+            Cpz_base: 3000.0
+
+  - case_id: case_08_kpz015_cpz06k
+    note: Kpz=0.15e6, Cpz=6e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 150000.0
+            Cpz_base: 6000.0
+
+  - case_id: case_09_kpz015_cpz09k
+    note: Kpz=0.15e6, Cpz=9e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 150000.0
+            Cpz_base: 9000.0

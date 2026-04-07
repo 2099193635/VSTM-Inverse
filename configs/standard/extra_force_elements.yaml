@@ -1,0 +1,28 @@
+Kz_pvd: 875000.0
+Cz_pvd: 9800.0
+Lpvdx_Bogie: 1.491
+Lpvdx_axlebox: 0.241
+dpvd: 1.0
+Knodex: 17100000.0
+Knodey: 6100000.0
+Knodez: 17100000.0
+dnode: 1.0
+Ht_node: 0.04
+Haxlebox_node: 0.03
+Lnode_axlebox: 0.48
+Lnodex_Bogie: 0.77
+Kz_svd: 0.0
+Cz_svd: 9800.0
+dsvd: 1.323
+Lsvd_Car: 7.677
+Lsvd_Bogie: 0.55
+Hc_svd: 0.94
+Ky_sld: 1875000.0
+Lsld_Bogie: 0.15
+Ht_sld: 0.224
+Hc_sld: 0.986
+Cy_sld_point1: [-0.3, -3585.0]
+Cy_sld_point2: [-0.1, -2500.0]
+Cy_sld_point3: [0.1, 2500.0]
+Cy_sld_point4: [0.3, 3585.0]
+Jaxlebox: 2.0

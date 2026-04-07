@@ -1,0 +1,53 @@
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: ./outputs_pino/${experiment_name}-${now:%Y-%m-%d_%H-%M-%S}
+
+experiment_name: vtcm_fno
+
+start_lr: 0.0003
+gamma: 0.99948708
+max_epochs: 500
+
+physics_weight: 0.1
+batch_size: 64
+seq_length: 256
+stride: 128
+preload_hdf5: true
+num_workers: 2
+
+# 数据集配置（优先使用 HDF5）
+train_hdf5: "datasets/VTCM_vertical/train_full_seq.hdf5"
+val_hdf5: "datasets/VTCM_vertical/test_full_seq.hdf5"
+
+# 备选：分离的 NPZ 目录
+# train_data_dir: "results/pino_train_dataset"
+# test_data_dir: "results/pino_test_dataset"
+
+# 备选：单一目录内部切分
+# dataset_path: "results/default_project"
+
+dynamics:
+  dt: 1.0e-4
+  alpha: 0.5
+  beta: 0.25
+  # 垂向输出 21 通道对应 dof=7（disp/vel/acc 三组）
+  dof: 7
+
+loss:
+  dynamics_weight: 0.1
+  kinematic_weight: 0.05
+
+model:
+  fno:
+    # in/out 通道由代码根据数据自动推断（这里保留占位）
+    in_channels: 2
+    out_channels: 21
+    decoder_layers: 1
+    decoder_layer_size: 64
+    dimension: 1
+    latent_channels: 64
+    num_fno_layers: 6
+    num_fno_modes: 12
+    padding: 9

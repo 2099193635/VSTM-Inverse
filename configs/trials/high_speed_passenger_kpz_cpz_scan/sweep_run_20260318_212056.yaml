@@ -1,0 +1,30 @@
+manifest: C:\VTCM_PYTHON\configs\sweeps\high_speed_passenger_kpz_cpz_scan.yaml
+output_root: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_cpz_scan
+run_started_at: '2026-03-18T21:20:56'
+run_finished_at: '2026-03-18T21:20:56'
+dry_run: true
+build_first: false
+total_cases: 1
+success_cases: 0
+failed_cases: 0
+entries:
+- case_id: case_01_kpz045_cpz06k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_cpz_scan\case_01_kpz045_cpz06k
+  command:
+  - C:\Users\20991\anaconda3\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_cpz_scan\case_01_kpz045_cpz06k
+  - --run_note
+  - kpz_cpz_scan_case_01_kpz045_cpz06k
+  status: dry-run
+  return_code: null
+  elapsed_s: 0.0

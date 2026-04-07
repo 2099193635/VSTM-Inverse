@@ -1,0 +1,16 @@
+manifest_name: high_speed_passenger_kpz_cpz_scan
+case_id: case_10_kpz045_cpz12k_ckjv80k
+note: Kpz=0.45e6, Cpz=12e3, Ckjv=80e3
+base_profile_dir: C:\VTCM_PYTHON\configs\standard
+generated_profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_cpz_scan\case_10_kpz045_cpz12k_ckjv80k
+common:
+  project_name: 高速客车一系垂向扫描
+  vehicle_type: 高速客车
+  save_dof_mode: vehicle
+  irr_type: 外部导入
+  plot_figs: 'Off'
+  note_prefix: kpz_cpz_scan
+  description: 一系垂向刚度/阻尼扫描，用于抑制构架中高频响应
+updated_yaml_files:
+- vehicle_params.yaml
+- fastener_kv.yaml

@@ -1,0 +1,18 @@
+manifest_name: high_speed_passenger_kpz_low_scan
+case_id: case_08_kpz015_cpz06k
+note: Kpz=0.15e6, Cpz=6e3
+base_profile_dir: C:\VTCM_PYTHON\configs\standard
+generated_profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_08_kpz015_cpz06k
+common:
+  project_name: 高速客车一系垂向扫描_降Kpz
+  vehicle_type: 高速客车
+  save_dof_mode: vehicle
+  irr_type: 外部导入
+  plot_figs: 'Off'
+  note_prefix: kpz_low_scan
+  description: '低一系垂向刚度扫描（接续上次结果，上次最优 Kpz=0.45e6+Cpz=6e3）。 本轮向下延伸：Kpz = 0.15/0.25/0.35e6，Cpz
+    = 3/6/9e3，共 9 组。
+
+    '
+updated_yaml_files:
+- vehicle_params.yaml

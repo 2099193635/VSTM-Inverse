@@ -1,0 +1,19 @@
+Dataset/
+datasets/
+matlab codes/
+results/
+physics_modules/
+physicsnemo/
+outputs_pino/
+preprocessing/
+.venv/
+.vscode/
+defect_injector/irre_file/
+
+# Python cache/build artifacts
+**/__pycache__/
+*.pyc
+
+# IDE / training artifacts
+PINO/WQJ/.idea/
+PINO/WQJ/checkpoints/

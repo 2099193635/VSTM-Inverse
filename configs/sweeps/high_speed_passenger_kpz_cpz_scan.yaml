@@ -1,0 +1,129 @@
+manifest_name: high_speed_passenger_kpz_cpz_scan
+base_profile_dir: configs/standard
+output_root: configs/trials/high_speed_passenger_kpz_cpz_scan
+common:
+  project_name: 高速客车一系垂向扫描
+  vehicle_type: 高速客车
+  save_dof_mode: vehicle
+  irr_type: 外部导入
+  plot_figs: 'Off'
+  note_prefix: kpz_cpz_scan
+  description: 一系垂向刚度/阻尼扫描，用于抑制构架中高频响应
+
+cases:
+  - case_id: case_01_kpz045_cpz06k
+    note: Kpz=0.45e6, Cpz=6e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 450000.0
+            Cpz_base: 6000.0
+
+  - case_id: case_02_kpz045_cpz12k
+    note: Kpz=0.45e6, Cpz=12e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 450000.0
+            Cpz_base: 12000.0
+
+  - case_id: case_03_kpz045_cpz18k
+    note: Kpz=0.45e6, Cpz=18e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 450000.0
+            Cpz_base: 18000.0
+
+  - case_id: case_04_kpz055_cpz06k
+    note: Kpz=0.55e6, Cpz=6e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 550000.0
+            Cpz_base: 6000.0
+
+  - case_id: case_05_kpz055_cpz12k
+    note: Kpz=0.55e6, Cpz=12e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 550000.0
+            Cpz_base: 12000.0
+
+  - case_id: case_06_kpz055_cpz18k
+    note: Kpz=0.55e6, Cpz=18e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 550000.0
+            Cpz_base: 18000.0
+
+  - case_id: case_07_kpz065_cpz06k
+    note: Kpz=0.65e6, Cpz=6e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 650000.0
+            Cpz_base: 6000.0
+
+  - case_id: case_08_kpz065_cpz12k
+    note: Kpz=0.65e6, Cpz=12e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 650000.0
+            Cpz_base: 12000.0
+
+  - case_id: case_09_kpz065_cpz18k
+    note: Kpz=0.65e6, Cpz=18e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 650000.0
+            Cpz_base: 18000.0
+
+  - case_id: case_10_kpz045_cpz12k_ckjv80k
+    note: Kpz=0.45e6, Cpz=12e3, Ckjv=80e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 450000.0
+            Cpz_base: 12000.0
+      fastener_kv.yaml:
+        Standard_KV:
+          Ckjv: 80000.0
+
+  - case_id: case_11_kpz045_cpz12k_cbv80k
+    note: Kpz=0.45e6, Cpz=12e3, Cbv=80e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 450000.0
+            Cpz_base: 12000.0
+      subrail_params.yaml:
+        Standard_Subrail:
+          Cbv: 80000.0
+
+  - case_id: case_12_kpz045_cpz12k_cfv45k
+    note: Kpz=0.45e6, Cpz=12e3, Cfv=45e3
+    updates:
+      vehicle_params.yaml:
+        客车:
+          高速客车:
+            Kpz_base: 450000.0
+            Cpz_base: 12000.0
+      subrail_params.yaml:
+        Standard_Subrail:
+          Cfv: 45000.0

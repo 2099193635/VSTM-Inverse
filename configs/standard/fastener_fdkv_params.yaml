@@ -1,0 +1,15 @@
+-30:
+  K_alpha: 23900000.0
+  C_alpha: 12670000.0
+  alpha_FDKV: 0.19
+  IntStep: 160
+-10:
+  K_alpha: 21410000.0
+  C_alpha: 8820000.0
+  alpha_FDKV: 0.13
+  IntStep: 160
+20:
+  K_alpha: 9180000.0
+  C_alpha: 18790000.0
+  alpha_FDKV: 0.05
+  IntStep: 160

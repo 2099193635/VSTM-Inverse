@@ -1,0 +1,209 @@
+manifest: C:\VTCM_PYTHON\configs\sweeps\high_speed_passenger_kpz_low_scan.yaml
+output_root: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan
+project_name: 高速客车一系垂向扫描_降Kpz
+run_started_at: '2026-03-19T00:14:41'
+run_finished_at: '2026-03-19T01:22:45'
+dry_run: false
+build_first: true
+total_cases: 9
+success_cases: 9
+failed_cases: 0
+entries:
+- case_id: case_01_kpz035_cpz03k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_01_kpz035_cpz03k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_01_kpz035_cpz03k
+  - --run_note
+  - kpz_low_scan_case_01_kpz035_cpz03k
+  status: success
+  return_code: 0
+  elapsed_s: 512.412
+- case_id: case_02_kpz035_cpz06k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_02_kpz035_cpz06k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_02_kpz035_cpz06k
+  - --run_note
+  - kpz_low_scan_case_02_kpz035_cpz06k
+  status: success
+  return_code: 0
+  elapsed_s: 530.298
+- case_id: case_03_kpz035_cpz09k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_03_kpz035_cpz09k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_03_kpz035_cpz09k
+  - --run_note
+  - kpz_low_scan_case_03_kpz035_cpz09k
+  status: success
+  return_code: 0
+  elapsed_s: 516.533
+- case_id: case_04_kpz025_cpz03k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_04_kpz025_cpz03k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_04_kpz025_cpz03k
+  - --run_note
+  - kpz_low_scan_case_04_kpz025_cpz03k
+  status: success
+  return_code: 0
+  elapsed_s: 459.471
+- case_id: case_05_kpz025_cpz06k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_05_kpz025_cpz06k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_05_kpz025_cpz06k
+  - --run_note
+  - kpz_low_scan_case_05_kpz025_cpz06k
+  status: success
+  return_code: 0
+  elapsed_s: 420.933
+- case_id: case_06_kpz025_cpz09k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_06_kpz025_cpz09k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_06_kpz025_cpz09k
+  - --run_note
+  - kpz_low_scan_case_06_kpz025_cpz09k
+  status: success
+  return_code: 0
+  elapsed_s: 420.496
+- case_id: case_07_kpz015_cpz03k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_07_kpz015_cpz03k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_07_kpz015_cpz03k
+  - --run_note
+  - kpz_low_scan_case_07_kpz015_cpz03k
+  status: success
+  return_code: 0
+  elapsed_s: 411.567
+- case_id: case_08_kpz015_cpz06k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_08_kpz015_cpz06k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_08_kpz015_cpz06k
+  - --run_note
+  - kpz_low_scan_case_08_kpz015_cpz06k
+  status: success
+  return_code: 0
+  elapsed_s: 407.243
+- case_id: case_09_kpz015_cpz09k
+  profile_dir: C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_09_kpz015_cpz09k
+  command:
+  - C:\Users\20991\anaconda3\envs\pytorch\python.exe
+  - C:\VTCM_PYTHON\generate_main.py
+  - --project_name
+  - 高速客车一系垂向扫描_降Kpz
+  - --vehicle_type
+  - 高速客车
+  - --save_dof_mode
+  - vehicle
+  - --irr_type
+  - 外部导入
+  - --plot_figs
+  - 'Off'
+  - --param_profile_dir
+  - C:\VTCM_PYTHON\configs\trials\high_speed_passenger_kpz_low_scan\case_09_kpz015_cpz09k
+  - --run_note
+  - kpz_low_scan_case_09_kpz015_cpz09k
+  status: success
+  return_code: 0
+  elapsed_s: 405.846

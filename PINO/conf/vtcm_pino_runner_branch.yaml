@@ -1,0 +1,66 @@
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: ./outputs_pino/${experiment_name}-${now:%Y-%m-%d_%H-%M-%S}
+
+experiment_name: vtcm_pino_branch
+
+start_lr: 0.0003
+gamma: 0.99948708
+max_epochs: 500
+
+batch_size: 64
+seq_length: 256
+stride: 128
+preload_hdf5: true
+num_workers: 2
+
+# 数据集配置（优先使用 HDF5）
+train_hdf5: "datasets/VTCM_vertical/train_full_seq.hdf5"
+val_hdf5: "datasets/VTCM_vertical/validation_full_seq.hdf5"
+# 可选，不填则脚本内部使用 val_hdf5 作为 test_hdf5
+test_hdf5: "datasets/VTCM_vertical/test_full_seq.hdf5"
+
+# Runner 风格开关区（用于决定损失组合/任务权重）
+data:
+  OperatorType: PINO-MBD
+  NoData: "Off"
+  DiffLossSwitch: "On"
+  VirtualSwitch: "Off"
+  GradNorm: "Off"
+  GradNorm_alpha: 0.5
+
+# Runner 风格训练权重
+train:
+  xy_loss: 1.0
+  f_loss: 0.25
+  diff_loss1: 1.0
+  diff_loss2: 1.0
+  carbody_loss: 1.0
+  others_loss: 1.0
+
+# 物理残差中的动力学与运动学项权重
+loss:
+  dynamics_weight: 0.1
+  kinematic_weight: 0.05
+
+dynamics:
+  dt: 1.0e-4
+  alpha: 0.5
+  beta: 0.25
+  dof: 7
+
+# 双分支模型：out_dim1 + out_dim2 = 9
+model:
+  out_dim1: 3
+  out_dim2: 6
+  # Runner 原生网络参数
+  modes1: 100
+  modes2: 1000
+  width1: 120
+  width2: 200
+  fc_dim1: 100
+  fc_dim2: 200
+  inputDim1: 2
+  inputDim2: 2
