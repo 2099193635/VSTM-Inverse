@@ -1,0 +1,21 @@
+04:47:32 [INFO] train: Device: cuda
+04:47:32 [INFO] train: Loading train dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/train.hdf5
+04:47:32 [INFO] train: Loading val dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/validation_full_seq.hdf5
+04:47:32 [INFO] train: 
+Config: epochs=100, batch=8, physics=none, train_full_seq=False, val_full_seq=True
+  spatial_len=256, n_sensors=3, n_cond=17
+04:47:32 [INFO] train: Sequence length | train=256, val=1000
+04:47:32 [INFO] train: Train samples: 960, Val samples: 20
+04:47:32 [INFO] train: Model parameters: 361,856
+04:47:33 [INFO] train: 
+============================================================
+04:47:33 [INFO] train: Training PCNIO  |  100 epochs  |  cuda
+04:47:33 [INFO] train: ============================================================
+04:47:57 [INFO] inverse_trainer: Epoch    5 | train 1.4723 (data 0.9569 frf 0.0000 pinn 0.0000 spec 0.6420) | val 2.8018
+04:47:58 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0005.png
+04:48:21 [INFO] inverse_trainer: Epoch   10 | train 1.4216 (data 0.9340 frf 0.0000 pinn 0.0000 spec 0.1038) | val 2.7939
+04:48:22 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0010.png
+04:48:44 [INFO] inverse_trainer: Epoch   15 | train 1.4108 (data 0.9280 frf 0.0000 pinn 0.0000 spec 0.0173) | val 2.9335
+04:48:45 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0015.png
+04:49:07 [INFO] inverse_trainer: Epoch   20 | train 1.4106 (data 0.9264 frf 0.0000 pinn 0.0000 spec 0.0102) | val 2.8843
+04:49:08 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0020.png

@@ -86,8 +86,17 @@ class BranchEncoder(nn.Module):
             for _ in range(cfg.branch_layers)
         ])
 
-        # 3. 全局聚合：T → branch_modes（固定长度，不依赖输入 T）
-        self.pool = nn.AdaptiveAvgPool1d(cfg.branch_modes)
+        # 3. 可学习跨注意力池化：从时序中学习提取 branch_modes 个特征向量
+        #    避免 AdaptiveAvgPool1d 在信号均值为零时将信息平均掉
+        self.attn_queries = nn.Parameter(
+            torch.randn(cfg.branch_modes, cfg.width) * 0.02
+        )
+        self.attn_pool = nn.MultiheadAttention(
+            embed_dim=cfg.width,
+            num_heads=4,
+            dropout=cfg.dropout,
+            batch_first=True,
+        )
 
         self.dropout = nn.Dropout(cfg.dropout)
 
@@ -100,6 +109,10 @@ class BranchEncoder(nn.Module):
             x = block(x)                  # [B, width, T]
 
         x = self.dropout(x)
-        x = self.pool(x)                  # [B, width, branch_modes]
-        codes = x.transpose(1, 2)        # [B, branch_modes, width]
-        return codes
+        # x: [B, width, T] → [B, T, width] 作为 key/value
+        x = x.transpose(1, 2)            # [B, T, width]
+        B = x.shape[0]
+        # 可学习查询向量扩展到批次维度
+        queries = self.attn_queries.unsqueeze(0).expand(B, -1, -1)  # [B, p, width]
+        codes, _ = self.attn_pool(queries, x, x)                    # [B, p, width]
+        return codes                      # [B, branch_modes, width]

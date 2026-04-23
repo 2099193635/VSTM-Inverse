@@ -83,8 +83,15 @@ class FiLMConditioner(nn.Module):
             nn.Linear(cfg.n_cond, hidden),
             nn.GELU(),
             nn.Linear(hidden, hidden),
+            nn.GELU(),
             nn.Linear(hidden, 2 * self.width)
         )
+        # 初始化最后一层为零 → 训练开始时 scale=0, shift=0（恒等变换）
+        nn.init.zeros_(self.mlp[-1].weight)
+        nn.init.zeros_(self.mlp[-1].bias)
+
+        # LayerNorm 消除 shift 引入的空间恒定偏置
+        self.post_norm = nn.LayerNorm(cfg.width)
     
     def forward(self,
                 cond: torch.Tensor,
@@ -94,7 +101,12 @@ class FiLMConditioner(nn.Module):
         # basis: [B, L, width]
         out = self.mlp(cond)                                 # [B, 2*width]
         raw_scale, shift = out.chunk(2, dim=-1)              # [B, width], [B, width]
-        scale = torch.tanh(raw_scale).unsqueeze(1)           # [B, 1, width]
+        # softplus 保证 (1+scale) > 0，避免 tanh→-1 时完全消除空间变化
+        scale = torch.nn.functional.softplus(raw_scale).unsqueeze(1)  # [B, 1, width], >0
         shift = shift.unsqueeze(1)                           # [B, 1, width]
 
-        return basis * (1 + scale) + shift                   # [B, L, width]
+        # 只应用scale，去掉shift
+        # shift会把basis中的空间变化消除（全加同一个常数向量）
+        # 通过LayerNorm消除的shift不彻底，因为每个样本的shift不同
+        modulated = basis * (1 + scale)                      # [B, L, width]
+        return self.post_norm(modulated)                     # [B, L, width]

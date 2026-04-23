@@ -316,9 +316,42 @@ class InverseTrainer:
                     dx=getattr(self.cfg, "dx", 0.25),
                 )
 
+        # ========== L_spatial (空间变化约束，核心) =========
+        # 防止输出退化为常数：强制预测值具有足够的空间变化
+        # 这是最关键的约束，因为数据损失本身会让模型学到均值预测
+        l_spatial = torch.tensor(0.0, device=self.device)
+        lambda_spatial = getattr(self.cfg, "lambda_spatial", 1.0)  # 提高默认权重到1.0
+        if lambda_spatial > 0:
+            z_vert_pred = z_pred[:, :, 0] if z_pred.dim() == 3 else z_pred  # [B, L]
+            z_vert_true = z_true[:, :, 0] if z_true.dim() == 3 else z_true
+            
+            if seq_lengths is not None:
+                # 按seq_lengths计算每个样本的有效空间std
+                spatial_terms = []
+                seq_lengths_list = seq_lengths.detach().cpu().tolist()
+                for pred_i, true_i, seq_len in zip(z_vert_pred, z_vert_true, seq_lengths_list):
+                    seq_len = int(seq_len)
+                    std_pred = pred_i[:seq_len].std()
+                    std_true = true_i[:seq_len].std()
+                    # 目标：std_pred >= 0.8 * std_true（要求80%的目标变化）
+                    # 如果不满足，返回巨大的惩罚（指数增长）
+                    gap = 0.8 * std_true - std_pred
+                    if gap > 0:
+                        # 未达到目标时，惩罚为gap的平方，强制优化
+                        spatial_terms.append(gap ** 2)
+                    else:
+                        # 超过目标时，无惩罚
+                        spatial_terms.append(torch.tensor(0.0, device=self.device))
+                l_spatial = torch.stack(spatial_terms).mean() if spatial_terms else l_spatial
+            else:
+                std_pred = z_vert_pred.std(dim=1)
+                std_true = z_vert_true.std(dim=1)
+                gap = 0.8 * std_true - std_pred
+                l_spatial = torch.nn.functional.relu(gap).mean() ** 2
+
         # ========== Weighted Fusion =========
         lambda_phys = 1
-        loss_total = l_data + lambda_phys * l_phys + self.cfg.lambda_spec * l_spec
+        loss_total = l_data + lambda_phys * l_phys + self.cfg.lambda_spec * l_spec + lambda_spatial * l_spatial
 
         return loss_total, {
             "l_total": loss_total.item(),
@@ -327,6 +360,7 @@ class InverseTrainer:
             "l_frf": l_frf.item(),
             "l_pinn": l_pinn.item(),
             "l_spec": l_spec.item(),
+            "l_spatial": l_spatial.item(),
         }
 
 
@@ -353,7 +387,7 @@ class InverseTrainer:
         if self.physics_layer is not None:
             self.physics_layer.train(train)
         
-        keys = ["l_data", "l_phys", "l_frf", "l_pinn", "l_spec", "l_total"]
+        keys = ["l_data", "l_phys", "l_frf", "l_pinn", "l_spec", "l_spatial", "l_total"]
         agg: dict[str, float] = {k: 0.0 for k in keys}
         n = 0
 

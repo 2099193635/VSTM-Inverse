@@ -71,17 +71,32 @@ class TrunkDecoder(nn.Module):
 
         act = nn.GELU() if cfg.activation == "gelu" else nn.ReLU()
 
-        # MLP：pe_dim → trunk_hidden × trunk_layers → width
+        # MLP：pe_dim → trunk_hidden × (trunk_layers-1) → width
         layers: list[nn.Module] = [nn.Linear(pe_dim, cfg.trunk_hidden), act]
-        for _ in range(cfg.trunk_layers - 1):
+        for _ in range(cfg.trunk_layers - 2):
             layers += [nn.Linear(cfg.trunk_hidden, cfg.trunk_hidden), act]
-        layers.append(nn.Linear(cfg.trunk_hidden, cfg.width))
+        self.mlp_body = nn.Sequential(*layers)
+        
+        # 最后一层：trunk_hidden → width，用于残差
+        self.mlp_out = nn.Linear(cfg.trunk_hidden, cfg.width)
+        
+        # PE投影到width维度，用于残差连接
+        self.pe_proj = nn.Linear(pe_dim, cfg.width)
 
-        self.mlp = nn.Sequential(*layers)
         self.norm = nn.LayerNorm(cfg.width)
 
     def forward(self, x_query: torch.Tensor) -> torch.Tensor:
         # x_query: [B, L]
         pe = self.pe(x_query)          # [B, L, 2K]
-        basis = self.mlp(pe)           # [B, L, width]
-        return self.norm(basis)        # [B, L, width]
+        
+        # 主路径：MLP
+        x = self.mlp_body(pe)          # [B, L, trunk_hidden]
+        out = self.mlp_out(x)          # [B, L, width]
+        
+        # 残差路径：PE直接投影到width
+        pe_skip = self.pe_proj(pe)     # [B, L, width]
+        
+        # 残差连接：保留PE的空间结构信息
+        out = out + pe_skip            # [B, L, width]
+        
+        return self.norm(out)          # [B, L, width]

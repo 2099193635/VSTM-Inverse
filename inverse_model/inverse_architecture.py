@@ -39,7 +39,11 @@ class InverseOperator(nn.Module):
         basis = self.film(cond, basis)     # [B, L, w]
 
         # ── DeepONet  einsum ────────────────────────
-        # codes [B, p, w] × basis [B, L, w] → [B, L]
-        out = torch.einsum("bpw, blw -> bl", codes, basis)  # [B, L]
-        out = out / self.cfg.branch_modes                    # 归一化（/ p）
+        # 正确形式：codes[B,p,w] 与 basis[B,L,w] 先对 w 做内积 → [B,p,L]，再对 p 求和
+        # einsum("bpw,blw->bpl") 等价于矩阵乘法 codes @ basis.transpose(-1,-2)
+        # 此写法避免 p 维度被直接求和消除（之前 bpw,blw->bl 等价于 p=1）
+        out = torch.einsum("bpw, blw -> bpl", codes, basis)  # [B, p, L]
+        out = out.mean(dim=1)                                 # [B, L]，对 p 个模式平均
+        return out.unsqueeze(-1)           # [B, L, 1]
+        out = out.mean(dim=1)                                 # [B, L]，对 p 个模式平均
         return out.unsqueeze(-1)           # [B, L, 1]
