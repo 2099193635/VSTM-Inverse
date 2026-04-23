@@ -1,0 +1,33 @@
+hydra:
+  job:
+    chdir: True
+  run:
+    dir: ./outputs_PCNIO/${experiment_name}-${now:%Y-%m-%d_%H-%M-%S}
+
+experiment_name: vtcm_PCNIO
+
+start_lr: 0.0003
+gamma: 0.99948708
+max_epochs: 500
+
+physics_weight: 0.1
+batch_size: 64
+seq_length: 256
+stride: 128
+preload_hdf5: true
+num_workers: 2
+
+train_hdf5: "datasets/VTCM_vertical/train_full_seq.hdf5"
+val_hdf5: "datasets/VTCM_vertical/test_full_seq.hdf5"
+
+model:
+  fno:
+    in_channels: 2
+    out_channels: 21
+    decoder_layers: 1
+    decoder_layer_size: 64
+    dimension: 1
+    latent_channels: 64
+    num_fno_layers: 6
+    num_fno_modes: 12
+    padding: 9

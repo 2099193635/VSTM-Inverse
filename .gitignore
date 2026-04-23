@@ -17,3 +17,19 @@ defect_injector/irre_file/
 # IDE / training artifacts
 PINO/WQJ/.idea/
 PINO/WQJ/checkpoints/
+
+# Large data files
+data/*.h5
+data/*.zip
+data/*.hdf5
+
+# Model checkpoints & training outputs (large binary files)
+inverse_model/checkpoints/
+inverse_model/checkpoints_no_proj/
+inverse_model/checkpoints_*/
+**/*.pt
+**/*.pth
+
+# Training logs & generated images (keep source code only)
+inverse_model/train.log
+inverse_model/checkpoints*/*.log
