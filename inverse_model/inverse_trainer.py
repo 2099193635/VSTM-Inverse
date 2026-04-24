@@ -24,6 +24,29 @@ import numpy as np
 logger = logging.getLogger(__name__)
 
 
+def _masked_pearson_corr_1d(pred: Tensor, target: Tensor, eps: float = 1e-8) -> Tensor:
+    pred_centered = pred - pred.mean()
+    target_centered = target - target.mean()
+    denom = torch.sqrt(
+        pred_centered.pow(2).sum() * target_centered.pow(2).sum() + eps
+    )
+    return (pred_centered * target_centered).sum() / denom
+
+
+def _masked_grad_mse_1d(pred: Tensor, target: Tensor) -> Tensor:
+    if pred.numel() < 2:
+        return pred.new_tensor(0.0)
+    pred_grad = pred[1:] - pred[:-1]
+    target_grad = target[1:] - target[:-1]
+    return F.mse_loss(pred_grad, target_grad)
+
+
+def _relative_std_loss_1d(pred: Tensor, target: Tensor, eps: float = 1e-8) -> Tensor:
+    pred_std = pred.std(unbiased=False)
+    target_std = target.std(unbiased=False)
+    return ((pred_std - target_std) / (target_std + eps)) ** 2
+
+
 
 
 def track_psd_standard(freqs_spatial: Tensor, grade: int = 2) -> Tensor:
@@ -316,42 +339,49 @@ class InverseTrainer:
                     dx=getattr(self.cfg, "dx", 0.25),
                 )
 
-        # ========== L_spatial (空间变化约束，核心) =========
-        # 防止输出退化为常数：强制预测值具有足够的空间变化
-        # 这是最关键的约束，因为数据损失本身会让模型学到均值预测
-        l_spatial = torch.tensor(0.0, device=self.device)
-        lambda_spatial = getattr(self.cfg, "lambda_spatial", 1.0)  # 提高默认权重到1.0
-        if lambda_spatial > 0:
-            z_vert_pred = z_pred[:, :, 0] if z_pred.dim() == 3 else z_pred  # [B, L]
-            z_vert_true = z_true[:, :, 0] if z_true.dim() == 3 else z_true
-            
-            if seq_lengths is not None:
-                # 按seq_lengths计算每个样本的有效空间std
-                spatial_terms = []
-                seq_lengths_list = seq_lengths.detach().cpu().tolist()
-                for pred_i, true_i, seq_len in zip(z_vert_pred, z_vert_true, seq_lengths_list):
-                    seq_len = int(seq_len)
-                    std_pred = pred_i[:seq_len].std()
-                    std_true = true_i[:seq_len].std()
-                    # 目标：std_pred >= 0.8 * std_true（要求80%的目标变化）
-                    # 如果不满足，返回巨大的惩罚（指数增长）
-                    gap = 0.8 * std_true - std_pred
-                    if gap > 0:
-                        # 未达到目标时，惩罚为gap的平方，强制优化
-                        spatial_terms.append(gap ** 2)
-                    else:
-                        # 超过目标时，无惩罚
-                        spatial_terms.append(torch.tensor(0.0, device=self.device))
-                l_spatial = torch.stack(spatial_terms).mean() if spatial_terms else l_spatial
-            else:
-                std_pred = z_vert_pred.std(dim=1)
-                std_true = z_vert_true.std(dim=1)
-                gap = 0.8 * std_true - std_pred
-                l_spatial = torch.nn.functional.relu(gap).mean() ** 2
+        # ========== Shape losses =========
+        # 仅靠 MSE 很容易学到“均值/直线”解；这里显式约束相关性、梯度与标准差。
+        z_vert_pred = z_pred[:, :, 0] if z_pred.dim() == 3 else z_pred
+        z_vert_true = z_true[:, :, 0] if z_true.dim() == 3 else z_true
+
+        corr_terms: list[Tensor] = []
+        grad_terms: list[Tensor] = []
+        std_terms: list[Tensor] = []
+        spatial_terms: list[Tensor] = []
+
+        if seq_lengths is not None:
+            seq_lengths_list = seq_lengths.detach().cpu().tolist()
+            for pred_i, true_i, seq_len in zip(z_vert_pred, z_vert_true, seq_lengths_list):
+                valid_len = int(seq_len)
+                pred_valid = pred_i[:valid_len]
+                true_valid = true_i[:valid_len]
+                corr_terms.append(1.0 - _masked_pearson_corr_1d(pred_valid, true_valid))
+                grad_terms.append(_masked_grad_mse_1d(pred_valid, true_valid))
+                std_terms.append(_relative_std_loss_1d(pred_valid, true_valid))
+                spatial_terms.append(F.relu(0.8 * true_valid.std(unbiased=False) - pred_valid.std(unbiased=False)) ** 2)
+        else:
+            for pred_i, true_i in zip(z_vert_pred, z_vert_true):
+                corr_terms.append(1.0 - _masked_pearson_corr_1d(pred_i, true_i))
+                grad_terms.append(_masked_grad_mse_1d(pred_i, true_i))
+                std_terms.append(_relative_std_loss_1d(pred_i, true_i))
+                spatial_terms.append(F.relu(0.8 * true_i.std(unbiased=False) - pred_i.std(unbiased=False)) ** 2)
+
+        l_corr = torch.stack(corr_terms).mean() if corr_terms else torch.tensor(0.0, device=self.device)
+        l_grad = torch.stack(grad_terms).mean() if grad_terms else torch.tensor(0.0, device=self.device)
+        l_std = torch.stack(std_terms).mean() if std_terms else torch.tensor(0.0, device=self.device)
+        l_spatial = torch.stack(spatial_terms).mean() if spatial_terms else torch.tensor(0.0, device=self.device)
 
         # ========== Weighted Fusion =========
-        lambda_phys = 1
-        loss_total = l_data + lambda_phys * l_phys + self.cfg.lambda_spec * l_spec + lambda_spatial * l_spatial
+        lambda_phys = getattr(self.cfg, "lambda_phys", 0.0)
+        loss_total = (
+            l_data
+            + lambda_phys * l_phys
+            + self.cfg.lambda_spec * l_spec
+            + getattr(self.cfg, "lambda_spatial", 0.0) * l_spatial
+            + getattr(self.cfg, "lambda_corr", 0.0) * l_corr
+            + getattr(self.cfg, "lambda_grad", 0.0) * l_grad
+            + getattr(self.cfg, "lambda_std", 0.0) * l_std
+        )
 
         return loss_total, {
             "l_total": loss_total.item(),
@@ -361,6 +391,9 @@ class InverseTrainer:
             "l_pinn": l_pinn.item(),
             "l_spec": l_spec.item(),
             "l_spatial": l_spatial.item(),
+            "l_corr": l_corr.item(),
+            "l_grad": l_grad.item(),
+            "l_std": l_std.item(),
         }
 
 
@@ -387,7 +420,7 @@ class InverseTrainer:
         if self.physics_layer is not None:
             self.physics_layer.train(train)
         
-        keys = ["l_data", "l_phys", "l_frf", "l_pinn", "l_spec", "l_spatial", "l_total"]
+        keys = ["l_data", "l_phys", "l_frf", "l_pinn", "l_spec", "l_spatial", "l_corr", "l_grad", "l_std", "l_total"]
         agg: dict[str, float] = {k: 0.0 for k in keys}
         n = 0
 
@@ -488,7 +521,11 @@ class InverseTrainer:
                         f"(data {train_m['l_data']:.4f} "
                         f"frf {train_m['l_frf']:.4f} "
                         f"pinn {train_m['l_pinn']:.4f} "
-                        f"spec {train_m['l_spec']:.4f}) | "
+                        f"spec {train_m['l_spec']:.4f} "
+                        f"spatial {train_m['l_spatial']:.4f} "
+                        f"corr {train_m['l_corr']:.4f} "
+                        f"grad {train_m['l_grad']:.4f} "
+                        f"std {train_m['l_std']:.4f}) | "
                         f"val {val_m['l_total']:.4f}"
                     )
                 

@@ -34,9 +34,15 @@ class InverseConfig:
 
     lambda_phys: float = 0.1
 
-    lambda_spec: float = 0.05
+    lambda_spec: float = 0.0
 
-    lambda_spatial: float = 1.0    # 空间变化约束：权重提高到1.0，强制保留空间变化
+    lambda_spatial: float = 1.0
+
+    lambda_corr: float = 2.0
+
+    lambda_grad: float = 0.2
+
+    lambda_std: float = 1.0
 
     dropout: float = 0.0
 

@@ -2,7 +2,7 @@
 Author: 2099193635 2099193635@qq.com
 Date: 2026-04-22 06:50:24
 LastEditors: 2099193635 2099193635@qq.com
-LastEditTime: 2026-04-23 02:40:54
+LastEditTime: 2026-04-23 06:03:53
 FilePath: /VTCM_PYTHON/inverse_model/train.py
 Description: 
 
@@ -74,7 +74,9 @@ logger = logging.getLogger("train")
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="PCNIO Training")
     p.add_argument("--epochs",       type=int,   default=100)
-    p.add_argument("--batch_size",   type=int,   default=8)
+    p.add_argument("--batch_size",   type=int,   default=64)
+    p.add_argument("--trunk_layers", type=int,   default=8,
+                   help="TrunkDecoder 的 MLP 层数，>=1")
     p.add_argument("--physics_mode", type=str,   default="pinn",
                    choices=["none", "frf", "pinn", "both"])
     p.add_argument("--ckpt_dir",     type=str,   default=str(_DIR / "checkpoints"))
@@ -145,12 +147,14 @@ def main() -> None:
         n_sensors    = n_sensors,
         n_cond       = n_cond,
         spatial_len  = spatial_len,
+        trunk_layers = args.trunk_layers,
         physics_mode = args.physics_mode,
     )
 
     logger.info(
         f"\nConfig: epochs={args.epochs}, batch={args.batch_size}, "
-        f"physics={args.physics_mode}, train_full_seq={args.train_full_seq}, val_full_seq={args.val_full_seq}\n"
+        f"physics={args.physics_mode}, trunk_layers={args.trunk_layers}, "
+        f"train_full_seq={args.train_full_seq}, val_full_seq={args.val_full_seq}\n"
         f"  spatial_len={cfg.spatial_len}, n_sensors={cfg.n_sensors}, n_cond={cfg.n_cond}"
     )
 

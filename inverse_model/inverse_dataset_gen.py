@@ -83,7 +83,7 @@ class InverseDatasetGenConfig:
 
     # 采样频率
     sim_freq:    int = 10_000   # Hz，仿真原始采样率
-    target_freq: int = 200      # Hz，降采样后目标采样率
+    target_freq: int = 10000      # Hz，降采样后目标采样率
 
     # 滑窗参数
     window_size: int = 256      # 时间点数（target_freq 下）
@@ -94,9 +94,9 @@ class InverseDatasetGenConfig:
     spatial_len: int = 256      # 不平顺空间采样点数（对齐 window_size）
 
     # 传感器 DOFs（在车辆子系统本地索引中，0-based）
-    # 默认取车体Z=1, 前构架Z=6, 后构架Z=11
-    sensor_local_dofs: Tuple[int, ...] = (1, 6, 11)
-
+    # # 默认取车体Z=1, 前构架Z=6, 后构架Z=11
+    # sensor_local_dofs: Tuple[int, ...] = (1, 6, 11)
+    sensor_local_dofs: Tuple[int, ...] = (1,)
     # 车辆子系统列数（从 idx_car_start 开始取几列）
     n_car_cols: int = 20
 
@@ -652,7 +652,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--window_size", type=int,   default=256)
     p.add_argument("--stride",      type=int,   default=128)
     p.add_argument("--spatial_len", type=int,   default=256)
-    p.add_argument("--target_freq", type=int,   default=200)
+    p.add_argument("--target_freq", type=int,   default=10_000)
     p.add_argument("--sim_freq",    type=int,   default=10_000)
     p.add_argument("--n_modal",     type=int,   default=8)
     p.add_argument("--skip_seconds",type=float, default=2.0)

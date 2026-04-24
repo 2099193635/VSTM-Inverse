@@ -68,17 +68,23 @@ class TrunkDecoder(nn.Module):
         super().__init__()
         self.pe = FourierPE(cfg.fpe_freqs)
         pe_dim = 2 * cfg.fpe_freqs  # 2K
+        self.trunk_layers = cfg.trunk_layers
+
+        if self.trunk_layers < 1:
+            raise ValueError(f"trunk_layers must be >= 1, got {self.trunk_layers}")
 
         act = nn.GELU() if cfg.activation == "gelu" else nn.ReLU()
 
-        # MLP：pe_dim → trunk_hidden × (trunk_layers-1) → width
-        layers: list[nn.Module] = [nn.Linear(pe_dim, cfg.trunk_hidden), act]
-        for _ in range(cfg.trunk_layers - 2):
-            layers += [nn.Linear(cfg.trunk_hidden, cfg.trunk_hidden), act]
-        self.mlp_body = nn.Sequential(*layers)
-        
-        # 最后一层：trunk_hidden → width，用于残差
-        self.mlp_out = nn.Linear(cfg.trunk_hidden, cfg.width)
+        # MLP：支持命令行可配置的 trunk_layers
+        if self.trunk_layers == 1:
+            self.mlp_body = nn.Identity()
+            self.mlp_out = nn.Linear(pe_dim, cfg.width)
+        else:
+            layers: list[nn.Module] = [nn.Linear(pe_dim, cfg.trunk_hidden), act]
+            for _ in range(self.trunk_layers - 2):
+                layers += [nn.Linear(cfg.trunk_hidden, cfg.trunk_hidden), act]
+            self.mlp_body = nn.Sequential(*layers)
+            self.mlp_out = nn.Linear(cfg.trunk_hidden, cfg.width)
         
         # PE投影到width维度，用于残差连接
         self.pe_proj = nn.Linear(pe_dim, cfg.width)
@@ -90,7 +96,7 @@ class TrunkDecoder(nn.Module):
         pe = self.pe(x_query)          # [B, L, 2K]
         
         # 主路径：MLP
-        x = self.mlp_body(pe)          # [B, L, trunk_hidden]
+        x = self.mlp_body(pe)
         out = self.mlp_out(x)          # [B, L, width]
         
         # 残差路径：PE直接投影到width

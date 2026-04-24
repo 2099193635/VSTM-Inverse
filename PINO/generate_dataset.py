@@ -1,8 +1,8 @@
 '''
 Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
 Date: 2026-03-24 06:40:03
-LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
-LastEditTime: 2026-03-26 11:19:17
+LastEditors: 2099193635 2099193635@qq.com
+LastEditTime: 2026-04-23 15:38:13
 FilePath: /VTCM_PYTHON/PINO/generate_dataset.py
 Description: 
 
@@ -218,8 +218,8 @@ def _generate_batch(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="VTCM PINO 数据生成工具")
-    parser.add_argument("--num_train", type=int, default=200, help="训练集仿真数量")
-    parser.add_argument("--num_test", type=int, default=40, help="测试集仿真数量")
+    parser.add_argument("--num_train", type=int, default=1000, help="训练集仿真数量")
+    parser.add_argument("--num_test", type=int, default=200, help="测试集仿真数量")
     parser.add_argument("--train_project", type=str, default="pino_train_dataset", help="训练集输出项目名")
     parser.add_argument("--test_project", type=str, default="pino_test_dataset", help="测试集输出项目名")
     parser.add_argument("--min_mileage", type=float, default=273.789599, help="最小起始里程 (km)")

@@ -20,24 +20,24 @@ Config: epochs=50, batch=8, physics=none, train_full_seq=False, val_full_seq=Tru
 04:48:38 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0015.png
 04:49:01 [INFO] inverse_trainer: Epoch   20 | train 1.4150 (data 0.9267 frf 0.0000 pinn 0.0000 spec 0.0288) | val 2.8503
 04:49:02 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0020.png
-=====
-04:47:33 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0090.png
-04:47:50 [INFO] inverse_trainer: Epoch    5 | train 1.4858 (data 0.9640 frf 0.0000 pinn 0.0000 spec 0.8325) | val 2.6843
-04:47:52 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0005.png
-04:47:57 [INFO] inverse_trainer: Epoch    5 | train 1.4723 (data 0.9569 frf 0.0000 pinn 0.0000 spec 0.6420) | val 2.8018
-04:47:58 [INFO] inverse_trainer: Epoch   95 | train 1.4807 (data 1.0000 frf 0.0000 pinn 0.0558 spec 0.0031) | val 2.7556
-04:47:58 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0005.png
-04:47:59 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0095.png
-04:48:15 [INFO] inverse_trainer: Epoch   10 | train 1.4521 (data 0.9406 frf 0.0000 pinn 0.0000 spec 0.5826) | val 2.7684
-04:48:15 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0010.png
-04:48:21 [INFO] inverse_trainer: Epoch   10 | train 1.4216 (data 0.9340 frf 0.0000 pinn 0.0000 spec 0.1038) | val 2.7939
-04:48:22 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0010.png
-04:48:23 [INFO] inverse_trainer: Epoch  100 | train 1.4855 (data 0.9999 frf 0.0000 pinn 0.0563 spec 0.0033) | val 2.7555
-04:48:24 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0100.png
-04:48:24 [INFO] train: Loss history saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/train_history.npz
-04:48:24 [INFO] train: 
-Final  train_loss=1.485479  val_loss=2.755483
-04:48:24 [INFO] train: Checkpoints saved to: /workspace/VTCM_PYTHON/inverse_model/checkpoints
+04:49:24 [INFO] inverse_trainer: Epoch   25 | train 1.4085 (data 0.9266 frf 0.0000 pinn 0.0000 spec 0.0157) | val 2.8557
+04:49:25 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0025.png
+04:49:47 [INFO] inverse_trainer: Epoch   30 | train 1.4082 (data 0.9264 frf 0.0000 pinn 0.0000 spec 0.0090) | val 2.8390
+04:49:48 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0030.png
+04:50:10 [INFO] inverse_trainer: Epoch   35 | train 1.4122 (data 0.9263 frf 0.0000 pinn 0.0000 spec 0.0076) | val 2.8233
+04:50:11 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0035.png
+04:50:34 [INFO] inverse_trainer: Epoch   40 | train 1.4074 (data 0.9256 frf 0.0000 pinn 0.0000 spec 0.0174) | val 2.8231
+04:50:34 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0040.png
+04:50:58 [INFO] inverse_trainer: Epoch   45 | train 1.4099 (data 0.9256 frf 0.0000 pinn 0.0000 spec 0.0154) | val 2.8145
+04:50:59 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0045.png
+04:51:23 [INFO] inverse_trainer: Epoch   50 | train 1.4128 (data 0.9256 frf 0.0000 pinn 0.0000 spec 0.0111) | val 2.8036
+04:51:24 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0050.png
+04:51:24 [INFO] train: Loss history saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/train_history.npz
+04:51:24 [INFO] train: 
+Final  train_loss=1.412755  val_loss=2.803575
+04:51:24 [INFO] train: Checkpoints saved to: /workspace/VTCM_PYTHON/inverse_model/checkpoints
+04:51:24 [INFO] train: Loss curve saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/loss_curve.png
+rkspace/VTCM_PYTHON/inverse_model/checkpoints
 04:48:24 [INFO] train: Loss curve saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/loss_curve.png
 04:48:38 [INFO] inverse_trainer: Epoch   15 | train 1.4154 (data 0.9325 frf 0.0000 pinn 0.0000 spec 0.0415) | val 2.9071
 04:48:38 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0015.png
@@ -47,3 +47,212 @@ Final  train_loss=1.485479  val_loss=2.755483
 04:49:02 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0020.png
 04:49:07 [INFO] inverse_trainer: Epoch   20 | train 1.4106 (data 0.9264 frf 0.0000 pinn 0.0000 spec 0.0102) | val 2.8843
 04:49:08 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0020.png
+04:49:24 [INFO] inverse_trainer: Epoch   25 | train 1.4085 (data 0.9266 frf 0.0000 pinn 0.0000 spec 0.0157) | val 2.8557
+04:49:25 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0025.png
+04:49:31 [INFO] inverse_trainer: Epoch   25 | train 1.4097 (data 0.9273 frf 0.0000 pinn 0.0000 spec 0.0180) | val 2.8709
+04:49:32 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0025.png
+04:49:47 [INFO] inverse_trainer: Epoch   30 | train 1.4082 (data 0.9264 frf 0.0000 pinn 0.0000 spec 0.0090) | val 2.8390
+04:49:48 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0030.png
+04:49:54 [INFO] inverse_trainer: Epoch   30 | train 1.4084 (data 0.9257 frf 0.0000 pinn 0.0000 spec 0.0441) | val 2.8595
+04:49:55 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0030.png
+04:50:10 [INFO] inverse_trainer: Epoch   35 | train 1.4122 (data 0.9263 frf 0.0000 pinn 0.0000 spec 0.0076) | val 2.8233
+04:50:11 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0035.png
+04:50:12 [INFO] train: Device: cuda
+04:50:12 [INFO] train: Loading train dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/train.hdf5
+04:50:12 [INFO] train: Loading val dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/validation_full_seq.hdf5
+04:50:12 [INFO] train: 
+Config: epochs=100, batch=8, physics=pinn, train_full_seq=False, val_full_seq=True
+  spatial_len=256, n_sensors=3, n_cond=17
+04:50:12 [INFO] train: Sequence length | train=256, val=1000
+04:50:12 [INFO] train: Train samples: 960, Val samples: 20
+04:50:12 [INFO] train: Model parameters: 361,856
+04:50:12 [INFO] inverse_trainer: Differentiable physics layer initialized (mode=pinn).
+04:50:14 [INFO] train: 
+============================================================
+04:50:14 [INFO] train: Training PCNIO  |  100 epochs  |  cuda
+04:50:14 [INFO] train: ============================================================
+04:50:17 [INFO] inverse_trainer: Epoch   35 | train 1.4106 (data 0.9260 frf 0.0000 pinn 0.0000 spec 0.0064) | val 2.9107
+04:50:18 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0035.png
+04:50:34 [INFO] inverse_trainer: Epoch   40 | train 1.4074 (data 0.9256 frf 0.0000 pinn 0.0000 spec 0.0174) | val 2.8231
+04:50:34 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0040.png
+04:50:39 [INFO] inverse_trainer: Epoch    5 | train 2.7719 (data 1.0002 frf 0.0000 pinn 103.6124 spec 5.1570) | val 3.6488
+04:50:40 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0005.png
+04:50:41 [INFO] inverse_trainer: Epoch   40 | train 1.4074 (data 0.9251 frf 0.0000 pinn 0.0000 spec 0.0058) | val 2.8722
+04:50:42 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0040.png
+04:50:58 [INFO] inverse_trainer: Epoch   45 | train 1.4099 (data 0.9256 frf 0.0000 pinn 0.0000 spec 0.0154) | val 2.8145
+04:50:59 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0045.png
+04:51:06 [INFO] inverse_trainer: Epoch   10 | train 1.5666 (data 1.0000 frf 0.0000 pinn 3.5096 spec 0.9789) | val 2.8783
+04:51:06 [INFO] inverse_trainer: Epoch   45 | train 1.4094 (data 0.9253 frf 0.0000 pinn 0.0000 spec 0.0191) | val 2.8686
+04:51:06 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0010.png
+04:51:06 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0045.png
+04:51:23 [INFO] inverse_trainer: Epoch   50 | train 1.4128 (data 0.9256 frf 0.0000 pinn 0.0000 spec 0.0111) | val 2.8036
+04:51:24 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0050.png
+04:51:24 [INFO] train: Loss history saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/train_history.npz
+04:51:24 [INFO] train: 
+Final  train_loss=1.412755  val_loss=2.803575
+04:51:24 [INFO] train: Checkpoints saved to: /workspace/VTCM_PYTHON/inverse_model/checkpoints
+04:51:24 [INFO] train: Loss curve saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/loss_curve.png
+04:51:30 [INFO] inverse_trainer: Epoch   50 | train 1.4092 (data 0.9260 frf 0.0000 pinn 0.0000 spec 0.0048) | val 2.8714
+04:51:31 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0050.png
+04:51:31 [INFO] inverse_trainer: Epoch   15 | train 1.5139 (data 1.0000 frf 0.0000 pinn 0.8623 spec 0.4357) | val 3.0530
+04:51:32 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0015.png
+04:51:54 [INFO] inverse_trainer: Epoch   55 | train 1.4086 (data 0.9257 frf 0.0000 pinn 0.0000 spec 0.0050) | val 2.8452
+04:51:55 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0055.png
+04:51:56 [INFO] inverse_trainer: Epoch   20 | train 1.4854 (data 1.0000 frf 0.0000 pinn 0.1433 spec 0.0073) | val 2.7639
+04:51:56 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0020.png
+04:52:17 [INFO] inverse_trainer: Epoch   60 | train 1.4083 (data 0.9256 frf 0.0000 pinn 0.0000 spec 0.0114) | val 2.8427
+04:52:18 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0060.png
+04:52:40 [INFO] inverse_trainer: Epoch   65 | train 1.4086 (data 0.9255 frf 0.0000 pinn 0.0000 spec 0.0048) | val 2.8385
+04:52:40 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0065.png
+04:53:02 [INFO] inverse_trainer: Epoch   70 | train 1.4081 (data 0.9247 frf 0.0000 pinn 0.0000 spec 0.0070) | val 2.8168
+04:53:03 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0070.png
+04:53:24 [INFO] inverse_trainer: Epoch   75 | train 1.4100 (data 0.9274 frf 0.0000 pinn 0.0000 spec 0.0051) | val 2.8244
+04:53:25 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0075.png
+04:53:46 [INFO] inverse_trainer: Epoch   80 | train 1.4066 (data 0.9249 frf 0.0000 pinn 0.0000 spec 0.0116) | val 2.8230
+04:53:47 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0080.png
+04:54:09 [INFO] inverse_trainer: Epoch   85 | train 1.4090 (data 0.9248 frf 0.0000 pinn 0.0000 spec 0.0046) | val 2.8095
+04:54:10 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0085.png
+04:54:31 [INFO] inverse_trainer: Epoch   90 | train 1.4113 (data 0.9250 frf 0.0000 pinn 0.0000 spec 0.0054) | val 2.8023
+04:54:32 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0090.png
+04:54:54 [INFO] inverse_trainer: Epoch   95 | train 1.4072 (data 0.9245 frf 0.0000 pinn 0.0000 spec 0.0039) | val 2.8033
+04:54:54 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0095.png
+04:55:16 [INFO] inverse_trainer: Epoch  100 | train 1.4087 (data 0.9256 frf 0.0000 pinn 0.0000 spec 0.0055) | val 2.7958
+04:55:17 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0100.png
+04:55:17 [INFO] train: Loss history saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/train_history.npz
+04:55:17 [INFO] train: 
+Final  train_loss=1.408704  val_loss=2.795778
+04:55:17 [INFO] train: Checkpoints saved to: /workspace/VTCM_PYTHON/inverse_model/checkpoints
+04:55:17 [INFO] train: Loss curve saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/loss_curve.png
+05:57:51 [INFO] train: Device: cuda
+05:57:51 [INFO] train: Loading train dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/train.hdf5
+05:57:51 [INFO] train: Loading val dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/validation_full_seq.hdf5
+05:57:51 [INFO] train: 
+Config: epochs=100, batch=8, physics=pinn, train_full_seq=False, val_full_seq=True
+  spatial_len=256, n_sensors=3, n_cond=17
+05:57:51 [INFO] train: Sequence length | train=256, val=1000
+05:57:51 [INFO] train: Train samples: 960, Val samples: 20
+05:57:51 [INFO] train: Model parameters: 326,400
+05:57:51 [INFO] inverse_trainer: Differentiable physics layer initialized (mode=pinn).
+05:57:52 [INFO] train: 
+============================================================
+05:57:52 [INFO] train: Training PCNIO  |  100 epochs  |  cuda
+05:57:52 [INFO] train: ============================================================
+05:58:24 [INFO] inverse_trainer: Epoch    5 | train 3.4108 (data 0.9834 frf 0.0000 pinn 178.3370 spec 0.0000 spatial 0.5730 corr 0.3611 grad 0.0109 std 0.9517) | val 5.2562
+05:58:25 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0005.png
+05:58:55 [INFO] inverse_trainer: Epoch   10 | train 3.1420 (data 0.9898 frf 0.0000 pinn 114.9867 spec 0.0000 spatial 0.5814 corr 0.2407 grad 0.0109 std 0.9722) | val 4.9091
+05:58:56 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0010.png
+05:59:46 [INFO] train: Device: cuda
+05:59:46 [INFO] train: Loading train dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/train.hdf5
+05:59:46 [INFO] train: Loading val dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/validation_full_seq.hdf5
+05:59:46 [INFO] train: 
+Config: epochs=100, batch=64, physics=pinn, train_full_seq=False, val_full_seq=True
+  spatial_len=256, n_sensors=3, n_cond=17
+05:59:46 [INFO] train: Sequence length | train=256, val=1000
+05:59:46 [INFO] train: Train samples: 960, Val samples: 20
+05:59:46 [INFO] train: Model parameters: 326,400
+05:59:46 [INFO] inverse_trainer: Differentiable physics layer initialized (mode=pinn).
+05:59:47 [INFO] train: 
+============================================================
+05:59:47 [INFO] train: Training PCNIO  |  100 epochs  |  cuda
+05:59:47 [INFO] train: ============================================================
+05:59:57 [INFO] inverse_trainer: Epoch    5 | train 7.1033 (data 1.0017 frf 0.0000 pinn 2821.0845 spec 0.0000 spatial 0.5134 corr 0.9854 grad 0.0109 std 0.7942) | val 6.0844
+05:59:58 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0005.png
+06:00:07 [INFO] inverse_trainer: Epoch   10 | train 4.7140 (data 0.9894 frf 0.0000 pinn 654.6052 spec 0.0000 spatial 0.5532 corr 0.8101 grad 0.0109 std 0.8945) | val 5.6006
+06:00:08 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0010.png
+06:00:17 [INFO] inverse_trainer: Epoch   15 | train 4.1719 (data 0.9792 frf 0.0000 pinn 553.2244 spec 0.0000 spatial 0.5554 corr 0.5885 grad 0.0109 std 0.9049) | val 7.2088
+06:00:17 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0015.png
+06:00:26 [INFO] inverse_trainer: Epoch   20 | train 3.7434 (data 0.9735 frf 0.0000 pinn 449.6139 spec 0.0000 spatial 0.5579 corr 0.4238 grad 0.0108 std 0.9127) | val 5.8320
+06:00:27 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0020.png
+06:00:36 [INFO] inverse_trainer: Epoch   25 | train 3.5001 (data 0.9737 frf 0.0000 pinn 349.3569 spec 0.0000 spatial 0.5623 corr 0.3439 grad 0.0108 std 0.9248) | val 5.4948
+06:00:37 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0025.png
+06:00:45 [INFO] inverse_trainer: Epoch   30 | train 3.1122 (data 0.9782 frf 0.0000 pinn 199.1648 spec 0.0000 spatial 0.5706 corr 0.2082 grad 0.0108 std 0.9456) | val 5.1092
+06:00:46 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0030.png
+06:00:55 [INFO] inverse_trainer: Epoch   35 | train 3.0064 (data 0.9800 frf 0.0000 pinn 137.1560 spec 0.0000 spatial 0.5730 corr 0.1816 grad 0.0108 std 0.9507) | val 5.0740
+06:00:56 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0035.png
+06:03:55 [INFO] train: Device: cuda
+06:03:55 [INFO] train: Loading train dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/train.hdf5
+06:03:55 [INFO] train: Loading val dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/validation_full_seq.hdf5
+06:03:55 [INFO] train: 
+Config: epochs=100, batch=64, physics=pinn, trunk_layers=8, train_full_seq=False, val_full_seq=True
+  spatial_len=256, n_sensors=3, n_cond=17
+06:03:55 [INFO] train: Sequence length | train=256, val=1000
+06:03:55 [INFO] train: Train samples: 960, Val samples: 20
+06:03:55 [INFO] train: Model parameters: 408,960
+06:03:55 [INFO] inverse_trainer: Differentiable physics layer initialized (mode=pinn).
+06:03:56 [INFO] train: 
+============================================================
+06:03:56 [INFO] train: Training PCNIO  |  100 epochs  |  cuda
+06:03:56 [INFO] train: ============================================================
+06:04:04 [INFO] inverse_trainer: Epoch    5 | train 6.6777 (data 0.9977 frf 0.0000 pinn 2479.3596 spec 0.0000 spatial 0.5157 corr 0.9433 grad 0.0109 std 0.7961) | val 7.7606
+06:04:05 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0005.png
+06:04:11 [INFO] inverse_trainer: Epoch   10 | train 5.1575 (data 0.9901 frf 0.0000 pinn 1080.1166 spec 0.0000 spatial 0.5425 corr 0.8376 grad 0.0109 std 0.8674) | val 6.3675
+06:04:12 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0010.png
+06:04:19 [INFO] inverse_trainer: Epoch   15 | train 4.4201 (data 0.9811 frf 0.0000 pinn 693.6967 spec 0.0000 spatial 0.5527 corr 0.6477 grad 0.0109 std 0.8951) | val 6.4045
+06:04:19 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0015.png
+06:04:26 [INFO] inverse_trainer: Epoch   20 | train 3.9776 (data 0.9789 frf 0.0000 pinn 562.5254 spec 0.0000 spatial 0.5618 corr 0.4751 grad 0.0108 std 0.9219) | val 5.6565
+06:04:27 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0020.png
+06:04:34 [INFO] inverse_trainer: Epoch   25 | train 4.2604 (data 0.9959 frf 0.0000 pinn 614.9726 spec 0.0000 spatial 0.5839 corr 0.5422 grad 0.0109 std 0.9792) | val 5.5523
+06:04:34 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0025.png
+06:04:43 [INFO] inverse_trainer: Epoch   30 | train 3.0489 (data 0.9923 frf 0.0000 pinn 94.2993 spec 0.0000 spatial 0.5845 corr 0.1970 grad 0.0109 std 0.9816) | val 5.0499
+06:04:44 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0030.png
+06:04:53 [INFO] inverse_trainer: Epoch   35 | train 2.9029 (data 0.9926 frf 0.0000 pinn 47.1899 spec 0.0000 spatial 0.5852 corr 0.1463 grad 0.0109 std 0.9832) | val 4.9485
+06:04:53 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0035.png
+06:30:59 [INFO] train: Device: cuda
+06:30:59 [INFO] train: Loading train dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/train.hdf5
+06:30:59 [INFO] train: Loading val dataset: /workspace/VTCM_PYTHON/datasets/VTCM_inverse/validation_full_seq.hdf5
+06:30:59 [INFO] train: 
+Config: epochs=100, batch=64, physics=pinn, trunk_layers=8, train_full_seq=False, val_full_seq=True
+  spatial_len=256, n_sensors=3, n_cond=17
+06:30:59 [INFO] train: Sequence length | train=256, val=1000
+06:30:59 [INFO] train: Train samples: 960, Val samples: 20
+06:30:59 [INFO] train: Model parameters: 408,960
+06:30:59 [INFO] inverse_trainer: Differentiable physics layer initialized (mode=pinn).
+06:31:00 [INFO] train: 
+============================================================
+06:31:00 [INFO] train: Training PCNIO  |  100 epochs  |  cuda
+06:31:00 [INFO] train: ============================================================
+06:31:09 [INFO] inverse_trainer: Epoch    5 | train 6.5873 (data 0.9972 frf 0.0000 pinn 2362.4766 spec 0.0000 spatial 0.5184 corr 0.9503 grad 0.0109 std 0.8063) | val 6.4858
+06:31:11 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0005.png
+06:31:19 [INFO] inverse_trainer: Epoch   10 | train 5.0463 (data 0.9908 frf 0.0000 pinn 942.9652 spec 0.0000 spatial 0.5452 corr 0.8456 grad 0.0109 std 0.8739) | val 5.3009
+06:31:20 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0010.png
+06:31:29 [INFO] inverse_trainer: Epoch   15 | train 4.5611 (data 0.9821 frf 0.0000 pinn 735.1044 spec 0.0000 spatial 0.5496 corr 0.7019 grad 0.0109 std 0.8884) | val 5.9357
+06:31:30 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0015.png
+06:31:39 [INFO] inverse_trainer: Epoch   20 | train 3.9955 (data 0.9748 frf 0.0000 pinn 567.8228 spec 0.0000 spatial 0.5550 corr 0.4959 grad 0.0108 std 0.9040) | val 8.0595
+06:31:39 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0020.png
+06:31:48 [INFO] inverse_trainer: Epoch   25 | train 5.9593 (data 0.9878 frf 0.0000 pinn 2420.7396 spec 0.0000 spatial 0.5658 corr 0.5253 grad 0.0109 std 0.9323) | val 5.8222
+06:31:48 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0025.png
+06:31:55 [INFO] inverse_trainer: Epoch   30 | train 3.0388 (data 0.9930 frf 0.0000 pinn 71.4768 spec 0.0000 spatial 0.5847 corr 0.2033 grad 0.0109 std 0.9809) | val 4.8808
+06:31:56 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0030.png
+06:32:02 [INFO] inverse_trainer: Epoch   35 | train 3.0214 (data 0.9932 frf 0.0000 pinn 93.3968 spec 0.0000 spatial 0.5855 corr 0.1818 grad 0.0109 std 0.9834) | val 4.9822
+06:32:03 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0035.png
+06:32:12 [INFO] inverse_trainer: Epoch   40 | train 2.9973 (data 0.9945 frf 0.0000 pinn 100.9120 spec 0.0000 spatial 0.5864 corr 0.1638 grad 0.0109 std 0.9858) | val 4.8950
+06:32:12 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0040.png
+06:32:22 [INFO] inverse_trainer: Epoch   45 | train 2.8276 (data 0.9921 frf 0.0000 pinn 38.9944 spec 0.0000 spatial 0.5848 corr 0.1143 grad 0.0109 std 0.9810) | val 4.8411
+06:32:22 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0045.png
+06:32:31 [INFO] inverse_trainer: Epoch   50 | train 2.8292 (data 0.9927 frf 0.0000 pinn 46.9982 spec 0.0000 spatial 0.5850 corr 0.1103 grad 0.0109 std 0.9818) | val 4.8940
+06:32:32 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0050.png
+06:32:41 [INFO] inverse_trainer: Epoch   55 | train 2.8330 (data 0.9924 frf 0.0000 pinn 63.0540 spec 0.0000 spatial 0.5851 corr 0.1043 grad 0.0109 std 0.9817) | val 4.9409
+06:32:41 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0055.png
+06:32:50 [INFO] inverse_trainer: Epoch   60 | train 2.9029 (data 0.9923 frf 0.0000 pinn 80.0674 spec 0.0000 spatial 0.5846 corr 0.1318 grad 0.0109 std 0.9800) | val 4.8911
+06:32:51 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0060.png
+06:33:00 [INFO] inverse_trainer: Epoch   65 | train 2.7468 (data 0.9930 frf 0.0000 pinn 32.5471 spec 0.0000 spatial 0.5857 corr 0.0749 grad 0.0109 std 0.9836) | val 4.9212
+06:33:01 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0065.png
+06:33:09 [INFO] inverse_trainer: Epoch   70 | train 2.7958 (data 0.9927 frf 0.0000 pinn 46.5263 spec 0.0000 spatial 0.5852 corr 0.0938 grad 0.0109 std 0.9816) | val 4.8432
+06:33:10 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0070.png
+06:33:19 [INFO] inverse_trainer: Epoch   75 | train 2.7785 (data 0.9929 frf 0.0000 pinn 38.1408 spec 0.0000 spatial 0.5856 corr 0.0883 grad 0.0109 std 0.9831) | val 4.8218
+06:33:19 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0075.png
+06:33:28 [INFO] inverse_trainer: Epoch   80 | train 2.8095 (data 0.9936 frf 0.0000 pinn 63.7988 spec 0.0000 spatial 0.5857 corr 0.0904 grad 0.0109 std 0.9834) | val 4.8851
+06:33:29 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0080.png
+06:33:38 [INFO] inverse_trainer: Epoch   85 | train 2.7951 (data 0.9924 frf 0.0000 pinn 37.9116 spec 0.0000 spatial 0.5849 corr 0.0979 grad 0.0109 std 0.9818) | val 4.8776
+06:33:38 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0085.png
+06:33:47 [INFO] inverse_trainer: Epoch   90 | train 2.7876 (data 0.9930 frf 0.0000 pinn 56.2500 spec 0.0000 spatial 0.5855 corr 0.0841 grad 0.0109 std 0.9825) | val 4.9207
+06:33:48 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0090.png
+06:33:57 [INFO] inverse_trainer: Epoch   95 | train 2.6910 (data 0.9925 frf 0.0000 pinn 19.6050 spec 0.0000 spatial 0.5854 corr 0.0549 grad 0.0109 std 0.9815) | val 4.9040
+06:33:57 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0095.png
+06:34:06 [INFO] inverse_trainer: Epoch  100 | train 2.6854 (data 0.9925 frf 0.0000 pinn 19.9633 spec 0.0000 spatial 0.5854 corr 0.0522 grad 0.0109 std 0.9809) | val 4.8866
+06:34:07 [INFO] inverse_trainer: Prediction plot saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/predictions/pred_vs_true_epoch_0100.png
+06:34:07 [INFO] train: Loss history saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/train_history.npz
+06:34:07 [INFO] train: 
+Final  train_loss=2.685385  val_loss=4.886602
+06:34:07 [INFO] train: Checkpoints saved to: /workspace/VTCM_PYTHON/inverse_model/checkpoints
+06:34:07 [INFO] train: Loss curve saved: /workspace/VTCM_PYTHON/inverse_model/checkpoints/loss_curve.png
