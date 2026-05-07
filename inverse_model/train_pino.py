@@ -61,6 +61,7 @@ class InverseH5Dataset(Dataset):
                 np.asarray(f["seq_lengths"], dtype=np.int64)
                 if "seq_lengths" in f else None
             )
+            )
 
     def __len__(self) -> int:
         return self.y.shape[0]
