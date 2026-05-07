@@ -10,6 +10,7 @@ from .training import (
     save_best_checkpoint,
     resume_checkpoint,
 )
+from .models import VTCMDeepONet, build_deeponet
 
 __all__ = [
     "InverseH5Dataset", "build_target",
@@ -19,4 +20,5 @@ __all__ = [
     "EarlyStopping", "linear_ramp",
     "physics_weight_at_step", "deriv_mix_alpha_at_step",
     "save_best_checkpoint", "resume_checkpoint",
+    "VTCMDeepONet", "build_deeponet",
 ]
