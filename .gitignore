@@ -47,4 +47,3 @@ inverse_model/green_function_results/
 # Exception: keep this specific figures directory
 !inverse_model/figures_pino_physics_informed/
 !inverse_model/figures_pino_physics_informed/**
-PINO/generate_dataset.log
