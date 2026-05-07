@@ -34,15 +34,6 @@ inverse_model/checkpoints_*/
 inverse_model/train.log
 inverse_model/checkpoints*/*.log
 
-# Generated figures & results (large image files)
-inverse_model/figures/
-inverse_model/figures_*/
-inverse_model/green_function_results/
-**/*.png
-**/*.jpg
-**/*.jpeg
-**/*.pdf
-**/*.svg
 
 # Exception: keep this specific figures directory
 !inverse_model/figures_pino_physics_informed/
